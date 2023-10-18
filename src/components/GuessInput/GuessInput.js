@@ -8,13 +8,9 @@ function GuessInput({ guess, setGuess, guesses, setGuesses }) {
       onSubmit={(event) => {
         event.preventDefault();
 
-        const newGuess = {
-          id: crypto.randomUUID(),
-          guess: guess
-        }
-        const nextGuesses = [...guesses, newGuess];
+        const nextGuesses = [...guesses, guess];
         
-        console.info({ newGuess });
+        console.info({ guess });
         setGuesses(nextGuesses);
         setGuess('');
       }}
