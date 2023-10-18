@@ -1,7 +1,6 @@
 import React from 'react';
 
-function GuessInput() {
-  const [guess, setGuess] = React.useState('');
+function GuessInput({ guess, setGuess }) {
 
   return <>
     <form 
@@ -12,14 +11,15 @@ function GuessInput() {
         setGuess('');
       }}
     >
-      <label htmlFor="guess-input">Enter guess (exactly 5 characters):</label>
+      <label htmlFor="guess-input">Enter guess:</label>
       <input 
         id="guess-input" 
         type="text" 
         value={guess}
-        minLength="5"
-        maxLength="5"
-        pattern="\d{5,5}"
+        minLength={5}
+        maxLength={5}
+        pattern="[a-zA-Z]{5}"
+        title="5 letter word"
         onChange={(event) => {
           setGuess(event.target.value.toUpperCase());
         }}
