@@ -1,9 +1,16 @@
 import React from 'react';
 
-function Guesses() {
+function Guesses({ guesses }) {
+
   return <>
     <div className="guess-results">
-      <p className="guess">GUESS</p>
+    { 
+        guesses.map(({ guess, id }) => {
+          return (
+            <p key={id} className="guess">{guess}</p>
+          )
+        })
+      }
     </div>
   </>;
 }
