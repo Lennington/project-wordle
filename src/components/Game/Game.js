@@ -2,6 +2,7 @@ import React from 'react';
 
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
+import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 
 import Guesses from '../Guesses';
 import GuessInput from '../GuessInput';
@@ -27,7 +28,7 @@ function Game() {
         gameOver: true,
         hasWon: true
       });
-    } else if (guesses.length === 5) {
+    } else if (guesses.length >= NUM_OF_GUESSES_ALLOWED-1) {
       setGameStatus({
         ...gameStatus,
         gameOver: true
