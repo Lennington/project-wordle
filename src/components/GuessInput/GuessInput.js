@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GuessInput({ handleGuess }) {
+function GuessInput({ handleGuess, gameOver }) {
   const [guessInput, setGuessInput] = React.useState('');
 
   return <>
@@ -15,7 +15,8 @@ function GuessInput({ handleGuess }) {
       <label htmlFor="guess-input">Enter guess:</label>
       <input 
         id="guess-input" 
-        type="text" 
+        type="text"
+        disabled={gameOver}
         value={guessInput}
         minLength={5}
         maxLength={5}
