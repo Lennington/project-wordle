@@ -13,7 +13,6 @@ function Guesses({ guesses, answer }) {
       range(NUM_OF_GUESSES_ALLOWED).map((num) => (
         <Guess
           key = {num}
-          id = {num}
           guess = {guesses[num]}
           answer = {answer}
         />
