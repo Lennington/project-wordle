@@ -2,7 +2,6 @@ import React from 'react';
 
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
-import { checkGuess } from '../../game-helpers';
 
 import Guesses from '../Guesses';
 import GuessInput from '../GuessInput';
@@ -21,11 +20,9 @@ function Game() {
   });
 
   function handleGuess(guessInput) {
-    const checkedGuess = checkGuess(guessInput, answer);
-
     setGuesses([...guesses, guessInput]);
 
-    if(checkedGuess.every(guess => guess.status === "correct")) {
+    if(guessInput === answer) {
       setGameStatus({
         gameOver: true,
         hasWon: true
