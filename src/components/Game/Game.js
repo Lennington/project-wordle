@@ -21,14 +21,15 @@ function Game() {
   });
 
   function handleGuess(guessInput) {
-    setGuesses([...guesses, guessInput]);
+    const nextSetGuesses = [...guesses, guessInput];
+    setGuesses(nextSetGuesses);
 
     if(guessInput === answer) {
       setGameStatus({
         gameOver: true,
         hasWon: true
       });
-    } else if (guesses.length >= NUM_OF_GUESSES_ALLOWED-1) {
+    } else if (nextSetGuesses.length >= NUM_OF_GUESSES_ALLOWED) {
       setGameStatus({
         ...gameStatus,
         gameOver: true
